@@ -1,8 +1,13 @@
-import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { StatusBar } from 'expo-status-bar';
 import * as Font from 'expo-font';
 import AppLoading from 'expo-app-loading';
+
+import HomeScreen from './screens/Home';
+import MealsScreen from './screens/Meals';
+import MealDetailsScreen from './screens/MealDetails';
 
 const fetchFonts = () => {
   return Font.loadAsync({
@@ -10,6 +15,8 @@ const fetchFonts = () => {
     'open-sans-bold': require('./assets/fonts/OpenSans-Bold.ttf'),
   });
 };
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
@@ -24,9 +31,15 @@ export default function App() {
     );
 
   return (
-    <View>
-      <Text>Open up App.js to start working on your app!</Text>
+    <>
       <StatusBar style="inverted" />
-    </View>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="Meals" component={MealsScreen} />
+          <Stack.Screen name="MealDetails" component={MealDetailsScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </>
   );
 }
