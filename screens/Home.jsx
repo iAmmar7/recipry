@@ -1,21 +1,42 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, Text, Button, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
+import colors from '../constants/colors';
 
-const Home = ({ navigation }) => {
+import { CATEGORIES } from '../data/dummy-data';
+
+const HomeScreen = (props) => {
+  const { navigation } = props;
+
   return (
-    <View style={styles.screen}>
-      <Text>The Home screen!</Text>
-      <Button title="Go to Meals" onPress={() => navigation.navigate('Meals')} />
-    </View>
+    <FlatList
+      data={CATEGORIES}
+      numColumns={2}
+      style={styles.flatList}
+      renderItem={(data) => (
+        <TouchableOpacity style={styles.gridItem} onPress={() => navigation.navigate('Meals')}>
+          <View>
+            <Text>{data.item.title}</Text>
+          </View>
+        </TouchableOpacity>
+      )}
+    />
   );
 };
 
 const styles = StyleSheet.create({
+  flatList: {
+    backgroundColor: colors.secondary,
+  },
   screen: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
+  gridItem: {
+    flex: 1,
+    margin: 15,
+    height: 150,
+  },
 });
 
-export default Home;
+export default HomeScreen;
