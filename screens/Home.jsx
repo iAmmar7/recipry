@@ -13,7 +13,7 @@ const HomeScreen = (props) => {
       numColumns={2}
       style={styles.flatList}
       renderItem={(data) => (
-        <TouchableOpacity style={styles.gridItem} onPress={() => navigation.navigate('Meals')}>
+        <TouchableOpacity style={styles.gridItem} onPress={() => navigation.navigate('Meals', { category: data.item })}>
           <View>
             <Text>{data.item.title}</Text>
           </View>
