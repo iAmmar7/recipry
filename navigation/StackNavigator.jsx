@@ -1,12 +1,12 @@
 import React from 'react';
+import { TouchableOpacity } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { TransitionPresets } from '@react-navigation/stack';
+import { Ionicons } from '@expo/vector-icons';
 
-import colors from './constants/colors';
-import HomeScreen from './screens/Home';
-import MealsScreen from './screens/Meals';
-import MealDetailsScreen from './screens/MealDetails';
+import { HomeScreen, MealsScreen, MealDetailsScreen } from '/screens';
+import colors from '../constants/colors';
 
 const Stack = createNativeStackNavigator();
 
@@ -41,7 +41,12 @@ const StackNavigator = () => {
           name="MealDetails"
           component={MealDetailsScreen}
           options={({ route }) => ({
-            title: route.params?.meal?.title,
+            headerTitle: route.params?.meal?.title,
+            // headerRight: () => (
+            //   <TouchableOpacity onPress={() => console.log('fav!!')}>
+            //     <Ionicons name="heart-outline" size={24} color="white" />
+            //   </TouchableOpacity>
+            // ),
           })}
         />
       </Stack.Navigator>

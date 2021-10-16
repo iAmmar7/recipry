@@ -21,11 +21,9 @@ const CategoryTile = (props) => {
               resizeMode="cover"
             />
           </View>
-          <View style={styles.titleContainer}>
-            <CustomText numberOfLines={2} bold title style={styles.title}>
-              {title}
-            </CustomText>
-          </View>
+          <CustomText numberOfLines={2} bold title style={styles.title}>
+            {title}
+          </CustomText>
         </View>
       </CustomTouch>
     </View>
@@ -37,19 +35,20 @@ const styles = StyleSheet.create({
     flex: 1,
     margin: '3%',
     height: 150,
+    borderRadius: 10,
+    shadowColor: colors.black,
+    shadowOpacity: 0.26,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 10,
+    elevation: 6,
+    borderWidth: 1,
+    overflow: 'hidden',
   },
   container: {
     flex: 1,
   },
   item: {
     flex: 1,
-    borderRadius: 10,
-    shadowColor: colors.black,
-    shadowOpacity: 0.26,
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 10,
-    elevation: 3,
-    borderWidth: 1,
     padding: '6%',
   },
   imageContainer: {
