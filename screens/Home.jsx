@@ -2,8 +2,8 @@ import React from 'react';
 import { FlatList, StyleSheet } from 'react-native';
 import colors from '../constants/colors';
 
-import { CATEGORIES } from '../data/dummy-data';
-import CategoryTile from '../components/CategoryTile';
+import { CATEGORIES } from '../data';
+import CategoryTile from '/components/CategoryTile';
 
 const HomeScreen = (props) => {
   const { navigation } = props;
@@ -17,6 +17,7 @@ const HomeScreen = (props) => {
         <CategoryTile
           title={data.item.title}
           color={data.item.color}
+          imageUrl={data.item.imageUrl}
           onSelect={() => navigation.navigate('Meals', { category: data.item })}
         />
       )}

@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, FlatList, StyleSheet } from 'react-native';
 
-import { CATEGORIES } from '../data/dummy-data';
+import { MEALS } from '../data';
+import CustomText from '/components/CustomText';
 
 const Meals = (props) => {
   const {
@@ -9,14 +10,20 @@ const Meals = (props) => {
     route: { params: { category } = {} },
   } = props;
 
-  // const selectedCategory = CATEGORIES.find((cat) => cat.id === categoryId);
+  const displayedMeals = MEALS.filter((meal) => meal.categoryIds.indexOf(category.id) >= 0);
 
-  console.log('CatId', category);
+  console.log('displayedMeals', displayedMeals);
 
   return (
     <View style={styles.screen}>
-      <Text>The Meals screen!</Text>
-      <Button title="Go to Details" onPress={() => navigation.navigate('MealDetails')} />
+      <FlatList
+        data={displayedMeals}
+        renderItem={(data) => (
+          <View>
+            <CustomText>{data.item.title}</CustomText>
+          </View>
+        )}
+      />
     </View>
   );
 };

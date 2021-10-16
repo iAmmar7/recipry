@@ -1,8 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text } from 'react-native';
 
-import colors from '../constants/colors';
-
 const CustomText = (props) => {
   const { children, style, bold, title, ...otherProps } = props;
 
