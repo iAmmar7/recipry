@@ -58,10 +58,19 @@ export default function App() {
             name="Meals"
             component={MealsScreen}
             options={({ route }) => ({
-              title: route.params.category.title,
+              title: route.params?.category?.title,
+              headerStyle: {
+                backgroundColor: colors.darkGrey,
+              },
             })}
           />
-          <Stack.Screen name="MealDetails" component={MealDetailsScreen} />
+          <Stack.Screen
+            name="MealDetails"
+            component={MealDetailsScreen}
+            options={({ route }) => ({
+              title: route.params?.meal?.title,
+            })}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </>

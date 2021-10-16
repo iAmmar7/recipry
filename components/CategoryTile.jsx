@@ -1,20 +1,16 @@
 import React from 'react';
-import { View, StyleSheet, Image, TouchableOpacity, TouchableNativeFeedback, Platform, Dimensions } from 'react-native';
+import { View, Image, StyleSheet } from 'react-native';
 
-import colors from '../constants/colors';
 import CustomText from './CustomText';
-
-const TouchComponent = Platform.select({
-  ios: () => TouchableOpacity,
-  android: () => (Platform.Version >= 21 ? TouchableNativeFeedback : TouchableOpacity),
-})();
+import CustomTouch from './CustomTouch';
+import colors from '../constants/colors';
 
 const CategoryTile = (props) => {
   const { title, color, imageUrl, onSelect } = props;
 
   return (
     <View style={styles.wrapper}>
-      <TouchComponent style={styles.container} onPress={onSelect}>
+      <CustomTouch style={styles.container} onPress={onSelect}>
         <View style={{ ...styles.item, backgroundColor: color }}>
           <View style={styles.imageContainer}>
             <Image
@@ -31,7 +27,7 @@ const CategoryTile = (props) => {
             </CustomText>
           </View>
         </View>
-      </TouchComponent>
+      </CustomTouch>
     </View>
   );
 };

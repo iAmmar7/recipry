@@ -1,9 +1,9 @@
 import React from 'react';
 import { FlatList, StyleSheet } from 'react-native';
-import colors from '../constants/colors';
 
+import { CategoryTile } from '/components';
 import { CATEGORIES } from '../data';
-import CategoryTile from '/components/CategoryTile';
+import colors from '../constants/colors';
 
 const HomeScreen = (props) => {
   const { navigation } = props;

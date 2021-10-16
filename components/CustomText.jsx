@@ -1,11 +1,21 @@
 import React from 'react';
 import { StyleSheet, Text } from 'react-native';
+import colors from '../constants/colors';
 
 const CustomText = (props) => {
-  const { children, style, bold, title, ...otherProps } = props;
+  const { children, style, bold, title, white, ...otherProps } = props;
 
   return (
-    <Text style={{ ...styles.text, ...(bold && styles.bold), ...(title && styles.title), ...style }} {...otherProps}>
+    <Text
+      style={{
+        ...styles.text,
+        ...(bold && styles.bold),
+        ...(title && styles.title),
+        ...(white && styles.white),
+        ...style,
+      }}
+      {...otherProps}
+    >
       {children}
     </Text>
   );
@@ -20,6 +30,9 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
+  },
+  white: {
+    color: colors.white,
   },
 });
 

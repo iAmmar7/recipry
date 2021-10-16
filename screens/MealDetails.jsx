@@ -1,7 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const MealDetails = () => {
+const MealDetails = (props) => {
+  const {
+    route: { params: { meal } = {} },
+  } = props;
+
   return (
     <View style={styles.screen}>
       <Text>The MealDetails screen!</Text>
