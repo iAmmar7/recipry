@@ -10,6 +10,11 @@ const Meals = (props) => {
     route: { params: { category } = {} },
   } = props;
 
+  // useLayoutEffect(() => {
+  //   navigation.getParent().setOptions({ tabBarStyle: { backgroundColor: category.color } });
+  //   return () => navigation.getParent().setOptions({ tabBarStyle: { backgroundColor: colors.primary } });
+  // }, [navigation]);
+
   const displayedMeals = MEALS.filter((meal) => meal.categoryIds.indexOf(category.id) >= 0);
 
   return (

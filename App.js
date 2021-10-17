@@ -4,7 +4,7 @@ import * as Font from 'expo-font';
 import AppLoading from 'expo-app-loading';
 import { enableScreens } from 'react-native-screens';
 
-import StackNavigator from './navigation/StackNavigator';
+import TabNavigator from './navigation/TabNavigator';
 
 // Make RN use native (Android|iOS) screen behavior. Good for performance
 enableScreens();
@@ -31,7 +31,7 @@ export default function App() {
   return (
     <>
       <StatusBar style="inverted" />
-      <StackNavigator />
+      <TabNavigator />
     </>
   );
 }
