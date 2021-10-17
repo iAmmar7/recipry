@@ -11,8 +11,8 @@ const Meals = (props) => {
   } = props;
 
   // useLayoutEffect(() => {
-  //   navigation.getParent().setOptions({ tabBarStyle: { backgroundColor: category.color } });
-  //   return () => navigation.getParent().setOptions({ tabBarStyle: { backgroundColor: colors.primary } });
+  // navigation.getParent().setOptions({ tabBarColor: 'red' });
+  // return () => navigation.getParent().setOptions({ tabBarColor: 'blue' });
   // }, [navigation]);
 
   const displayedMeals = MEALS.filter((meal) => meal.categoryIds.indexOf(category.id) >= 0);
