@@ -18,7 +18,7 @@ const HomeScreen = (props) => {
           title={data.item.title}
           color={data.item.color}
           imageUrl={data.item.imageUrl}
-          onSelect={() => navigation.navigate('CategoryMeals', { category: data.item })}
+          onSelect={() => navigation.navigate('Meals', { category: data.item })}
         />
       )}
     />

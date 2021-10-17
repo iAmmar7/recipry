@@ -1,8 +1,9 @@
-import React from 'react';
-import { View, FlatList, StyleSheet } from 'react-native';
+import React, { useLayoutEffect } from 'react';
+import { View, StyleSheet } from 'react-native';
 
-import { MealItem } from '/components';
+import { MealList } from '/components';
 import { MEALS } from '../data';
+import colors from '../constants/colors';
 
 const Meals = (props) => {
   const {
@@ -10,29 +11,16 @@ const Meals = (props) => {
     route: { params: { category } = {} },
   } = props;
 
-  // useLayoutEffect(() => {
-  // navigation.getParent().setOptions({ tabBarColor: 'red' });
-  // return () => navigation.getParent().setOptions({ tabBarColor: 'blue' });
-  // }, [navigation]);
+  useLayoutEffect(() => {
+    // navigation.getParent().setOptions({ tabBarColor: colors.darkGrey });
+    // return () => navigation.getParent().setOptions({ tabBarColor: colors.primary });
+  }, [navigation]);
 
   const displayedMeals = MEALS.filter((meal) => meal.categoryIds.indexOf(category.id) >= 0);
 
   return (
     <View style={{ ...styles.screen, backgroundColor: category.color }}>
-      <FlatList
-        data={displayedMeals}
-        renderItem={({ item }) => (
-          <MealItem
-            title={item.title}
-            imageUrl={item.imageUrl}
-            duration={item.duration}
-            complexity={item.complexity}
-            affordability={item.affordability}
-            onSelectMeal={() => navigation.navigate('MealDetails', { meal: item })}
-          />
-        )}
-        style={styles.list}
-      />
+      <MealList data={displayedMeals} navigation={navigation} itemBgColor={colors.darkGrey} />
     </View>
   );
 };
@@ -40,12 +28,6 @@ const Meals = (props) => {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 10,
-  },
-  list: {
-    width: '100%',
   },
 });
 

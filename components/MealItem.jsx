@@ -6,9 +6,9 @@ import CustomText from './CustomText';
 import CustomTouch from './CustomTouch';
 
 const MealItem = (props) => {
-  const { title, imageUrl, duration, complexity, affordability, onSelectMeal } = props;
+  const { title, imageUrl, duration, complexity, affordability, onSelectMeal, bgColor } = props;
   return (
-    <View style={styles.mealItem}>
+    <View style={{ ...styles.mealItem, backgroundColor: bgColor }}>
       <CustomTouch onPress={onSelectMeal}>
         <View>
           <View style={{ ...styles.mealRow, ...styles.mealHeader }}>
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
   mealItem: {
     height: 200,
     width: '100%',
-    backgroundColor: colors.darkGrey,
+    // backgroundColor: colors.darkGrey,
     borderRadius: 10,
     overflow: 'hidden',
     marginVertical: 10,
