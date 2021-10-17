@@ -1,10 +1,12 @@
+import 'react-native-gesture-handler';
+
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import * as Font from 'expo-font';
 import AppLoading from 'expo-app-loading';
 import { enableScreens } from 'react-native-screens';
 
-import TabNavigator from './navigation/TabNavigator';
+import DrawerNavigator from './navigation/DrawerNavigator';
 
 // Make RN use native (Android|iOS) screen behavior. Good for performance
 enableScreens();
@@ -31,7 +33,7 @@ export default function App() {
   return (
     <>
       <StatusBar style="inverted" />
-      <TabNavigator />
+      <DrawerNavigator />
     </>
   );
 }

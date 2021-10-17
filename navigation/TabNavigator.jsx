@@ -1,11 +1,10 @@
 import React from 'react';
 import { Platform } from 'react-native';
-import { NavigationContainer, getFocusedRouteNameFromRoute } from '@react-navigation/native';
+import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 
-import { FavoritesScreen } from '/screens';
 import { MealsNavigator, FavoritesNavigator } from './StackNavigator';
 import colors from '../constants/colors';
 
@@ -18,7 +17,6 @@ const TabNavigatorComponent = ({ children }) =>
       shifting={true}
       screenOptions={({ route }) => {
         const routeName = getFocusedRouteNameFromRoute(route);
-        console.log('routeName', routeName);
         return {
           tabBarColor: colors.primary,
           ...(routeName === 'Meals' && { tabBarColor: colors.darkGrey }),
@@ -46,30 +44,28 @@ const TabNavigatorComponent = ({ children }) =>
 
 const TabNavigator = () => {
   return (
-    <NavigationContainer>
-      <TabNavigatorComponent>
-        <Tab.Screen
-          name="MealsTab"
-          component={MealsNavigator}
-          options={() => ({
-            tabBarIcon: (tabInfo) => <Ionicons name="ios-restaurant" size={tabInfo.size || 22} color={tabInfo.color} />,
-          })}
-        />
-        <Tab.Screen
-          name="FavoritesTab"
-          component={FavoritesNavigator}
-          options={{
-            tabBarIcon: (tabInfo) => (
-              <Ionicons
-                name={tabInfo.focused ? 'heart-sharp' : 'heart-outline'}
-                size={tabInfo.size || 22}
-                color={tabInfo.color}
-              />
-            ),
-          }}
-        />
-      </TabNavigatorComponent>
-    </NavigationContainer>
+    <TabNavigatorComponent>
+      <Tab.Screen
+        name="MealsTab"
+        component={MealsNavigator}
+        options={() => ({
+          tabBarIcon: (tabInfo) => <Ionicons name="ios-restaurant" size={tabInfo.size || 22} color={tabInfo.color} />,
+        })}
+      />
+      <Tab.Screen
+        name="FavoritesTab"
+        component={FavoritesNavigator}
+        options={{
+          tabBarIcon: (tabInfo) => (
+            <Ionicons
+              name={tabInfo.focused ? 'heart-sharp' : 'heart-outline'}
+              size={tabInfo.size || 22}
+              color={tabInfo.color}
+            />
+          ),
+        }}
+      />
+    </TabNavigatorComponent>
   );
 };
 
