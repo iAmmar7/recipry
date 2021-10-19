@@ -4,7 +4,7 @@ import { View, FlatList, StyleSheet } from 'react-native';
 import MealItem from './MealItem';
 
 const Meals = (props) => {
-  const { data, itemBgColor, navigation } = props;
+  const { data, itemBgColor, screenColor, navigation } = props;
 
   return (
     <View style={{ ...styles.container }}>
@@ -18,7 +18,7 @@ const Meals = (props) => {
             duration={item.duration}
             complexity={item.complexity}
             affordability={item.affordability}
-            onSelectMeal={() => navigation.navigate('MealDetails', { meal: item })}
+            onSelectMeal={() => navigation.navigate('MealDetails', { meal: item, bgColor: screenColor })}
             bgColor={itemBgColor}
           />
         )}

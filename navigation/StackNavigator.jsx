@@ -50,6 +50,9 @@ const MealsNavigator = () => {
         component={MealDetailsScreen}
         options={({ route }) => ({
           headerTitle: route.params?.meal?.title,
+          headerStyle: {
+            backgroundColor: colors.darkGrey,
+          },
         })}
       />
     </Meals.Navigator>

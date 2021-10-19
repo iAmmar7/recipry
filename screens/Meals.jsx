@@ -20,7 +20,12 @@ const Meals = (props) => {
 
   return (
     <View style={{ ...styles.screen, backgroundColor: category.color }}>
-      <MealList data={displayedMeals} navigation={navigation} itemBgColor={colors.darkGrey} />
+      <MealList
+        data={displayedMeals}
+        navigation={navigation}
+        itemBgColor={colors.darkGrey}
+        screenColor={category.color}
+      />
     </View>
   );
 };

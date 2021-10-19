@@ -33,7 +33,7 @@ const TabNavigatorComponent = ({ children }) =>
         return {
           headerShown: false,
           tabBarStyle: { backgroundColor: colors.primary, paddingTop: 6, paddingBottom: 2 },
-          ...(routeName === 'CategoryMeals' && {
+          ...(routeName === 'Meals' && {
             tabBarStyle: { backgroundColor: colors.darkGrey },
           }),
           tabBarLabelStyle: { fontSize: 12, fontFamily: 'open-sans' },
