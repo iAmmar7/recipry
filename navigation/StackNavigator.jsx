@@ -1,12 +1,9 @@
 import React from 'react';
-import { TouchableOpacity } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { TransitionPresets } from '@react-navigation/stack';
-import { DrawerActions } from '@react-navigation/native';
-
-import { MaterialIcons } from '@expo/vector-icons';
 
 import { HomeScreen, MealsScreen, MealDetailsScreen, FavoritesScreen, FiltersScreen } from '/screens';
+import { DrawerIcon } from '/components';
 import colors from '../constants/colors';
 
 const stackDefaultOptions = {
@@ -29,17 +26,10 @@ const MealsNavigator = () => {
       <Meals.Screen
         name="Home"
         component={HomeScreen}
-        options={({ navigation }) => {
-          return {
-            headerRight: () => {
-              return (
-                <TouchableOpacity onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}>
-                  <MaterialIcons name="menu" size={24} color="white" />
-                </TouchableOpacity>
-              );
-            },
-          };
-        }}
+        options={({ navigation }) => ({
+          title: 'Meals',
+          headerRight: () => <DrawerIcon navigation={navigation} />,
+        })}
       />
       <Meals.Screen
         name="Meals"
@@ -71,14 +61,8 @@ const FavoritesNavigator = () => {
         name="Favorites"
         component={FavoritesScreen}
         options={({ navigation }) => ({
-          headerTitle: 'Your Favorites',
-          headerRight: () => {
-            return (
-              <TouchableOpacity onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}>
-                <MaterialIcons name="menu" size={24} color="white" />
-              </TouchableOpacity>
-            );
-          },
+          title: 'Favorites',
+          headerRight: () => <DrawerIcon navigation={navigation} />,
         })}
       />
       <Favorites.Screen
@@ -101,14 +85,8 @@ const FiltersNavigator = () => {
         name="Filters"
         component={FiltersScreen}
         options={({ navigation }) => ({
-          headerTitle: 'Filter Meals',
-          headerRight: () => {
-            return (
-              <TouchableOpacity onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}>
-                <MaterialIcons name="menu" size={24} color="white" />
-              </TouchableOpacity>
-            );
-          },
+          title: 'Filter Meals',
+          headerRight: () => <DrawerIcon navigation={navigation} />,
         })}
       />
     </Filters.Navigator>

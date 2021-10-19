@@ -49,6 +49,7 @@ const TabNavigator = () => {
         name="MealsTab"
         component={MealsNavigator}
         options={() => ({
+          tabBarLabel: 'Meals',
           tabBarIcon: (tabInfo) => <Ionicons name="ios-restaurant" size={tabInfo.size || 22} color={tabInfo.color} />,
         })}
       />
@@ -56,6 +57,7 @@ const TabNavigator = () => {
         name="FavoritesTab"
         component={FavoritesNavigator}
         options={{
+          tabBarLabel: 'Favorites',
           tabBarIcon: (tabInfo) => (
             <Ionicons
               name={tabInfo.focused ? 'heart-sharp' : 'heart-outline'}
