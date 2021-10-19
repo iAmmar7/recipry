@@ -15,6 +15,10 @@ const stackDefaultOptions = {
     color: colors.white,
     fontFamily: 'open-sans-bold',
   },
+  headerBackTitleStyle: {
+    color: colors.white,
+    fontFamily: 'open-sans',
+  },
   headerTintColor: colors.white,
 };
 

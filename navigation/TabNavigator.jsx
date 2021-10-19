@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 
+import { CustomText } from '/components';
 import { MealsNavigator, FavoritesNavigator } from './StackNavigator';
 import colors from '../constants/colors';
 
@@ -31,9 +32,11 @@ const TabNavigatorComponent = ({ children }) =>
         const routeName = getFocusedRouteNameFromRoute(route);
         return {
           headerShown: false,
-          tabBarStyle: { backgroundColor: colors.primary },
-          ...(routeName === 'CategoryMeals' && { tabBarStyle: { backgroundColor: colors.darkGrey } }),
-          tabBarLabelStyle: { fontSize: 12 },
+          tabBarStyle: { backgroundColor: colors.primary, paddingTop: 6, paddingBottom: 2 },
+          ...(routeName === 'CategoryMeals' && {
+            tabBarStyle: { backgroundColor: colors.darkGrey },
+          }),
+          tabBarLabelStyle: { fontSize: 12, fontFamily: 'open-sans' },
           tabBarActiveTintColor: colors.white,
         };
       }}
@@ -49,7 +52,7 @@ const TabNavigator = () => {
         name="MealsTab"
         component={MealsNavigator}
         options={() => ({
-          tabBarLabel: 'Meals',
+          tabBarLabel: Platform.OS === 'android' ? <CustomText bold>Meals</CustomText> : 'Meals',
           tabBarIcon: (tabInfo) => <Ionicons name="ios-restaurant" size={tabInfo.size || 22} color={tabInfo.color} />,
         })}
       />
@@ -57,7 +60,7 @@ const TabNavigator = () => {
         name="FavoritesTab"
         component={FavoritesNavigator}
         options={{
-          tabBarLabel: 'Favorites',
+          tabBarLabel: Platform.OS === 'android' ? <CustomText bold>Favorites</CustomText> : 'Favorites',
           tabBarIcon: (tabInfo) => (
             <Ionicons
               name={tabInfo.focused ? 'heart-sharp' : 'heart-outline'}
