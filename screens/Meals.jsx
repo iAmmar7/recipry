@@ -19,7 +19,7 @@ const Meals = (props) => {
   const displayedMeals = MEALS.filter((meal) => meal.categoryIds.indexOf(category.id) >= 0);
 
   return (
-    <View style={{ ...styles.screen, backgroundColor: category.color }}>
+    <View style={styles.screen}>
       <MealList
         data={displayedMeals}
         navigation={navigation}

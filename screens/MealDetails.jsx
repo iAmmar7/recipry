@@ -33,34 +33,30 @@ const MealDetails = (props) => {
     });
   }, [navigation, favorite]);
 
-  const textColor = bgColor ? colors.black : colors.white;
-
   return (
-    <ScrollView style={{ backgroundColor: bgColor ?? colors.secondary }}>
+    <ScrollView>
       <Image source={{ uri: meal.imageUrl }} style={styles.image} />
-      <View style={styles.details}>
+      <View style={{ ...styles.details, backgroundColor: bgColor ? colors.darkGrey : colors.primary }}>
         <CustomText white>{meal.duration}m</CustomText>
         <CustomText white>{meal.complexity.toUpperCase()}</CustomText>
         <CustomText white>{meal.affordability.toUpperCase()}</CustomText>
       </View>
-      <CustomText title bold style={{ ...styles.title, color: textColor }}>
+      <CustomText title bold style={styles.title}>
         Ingredients
       </CustomText>
       {meal.ingredients.map((ing) => (
         <View key={ing} style={styles.listItem}>
-          <CustomText style={{ color: textColor }}>{ing}</CustomText>
+          <CustomText>{ing}</CustomText>
         </View>
       ))}
-      <CustomText title bold style={{ ...styles.title, color: textColor }}>
+      <CustomText title bold style={styles.title}>
         Steps
       </CustomText>
       {meal.steps.map((step, index) => (
         <View key={step} style={styles.listItem}>
-          <CustomText bold style={{ color: textColor }}>
-            {index + 1}
-          </CustomText>
-          <CustomText style={{ ...styles.hyphen, color: textColor }}>-</CustomText>
-          <CustomText style={{ ...styles.stepDetails, color: textColor }}>{step}</CustomText>
+          <CustomText bold>{index + 1}</CustomText>
+          <CustomText style={styles.hyphen}>-</CustomText>
+          <CustomText style={styles.stepDetails}>{step}</CustomText>
         </View>
       ))}
     </ScrollView>
@@ -73,7 +69,6 @@ const styles = StyleSheet.create({
     height: 200,
   },
   details: {
-    backgroundColor: colors.darkGrey,
     flexDirection: 'row',
     paddingHorizontal: 15,
     paddingVertical: 8,
@@ -86,7 +81,7 @@ const styles = StyleSheet.create({
   listItem: {
     marginVertical: 10,
     marginHorizontal: 20,
-    borderColor: '#ccc',
+    borderColor: colors.lightGrey,
     borderWidth: 1,
     padding: 10,
     flexDirection: 'row',
