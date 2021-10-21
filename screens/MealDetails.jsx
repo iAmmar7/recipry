@@ -1,6 +1,6 @@
 import React, { useLayoutEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 import { ScrollView, View, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { useSelector, useDispatch } from 'react-redux';
 import { Ionicons } from '@expo/vector-icons';
 
 import { CustomText } from '/components';

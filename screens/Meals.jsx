@@ -2,7 +2,7 @@ import React, { useLayoutEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { View, StyleSheet } from 'react-native';
 
-import { MealList } from '/components';
+import { CustomText, MealList } from '/components';
 import colors from '../constants/colors';
 
 const Meals = (props) => {
@@ -20,6 +20,13 @@ const Meals = (props) => {
 
   const displayedMeals = filteredMeals.filter((meal) => meal.categoryIds.indexOf(category.id) >= 0);
 
+  if (displayedMeals.length === 0)
+    return (
+      <View style={styles.noData}>
+        <CustomText bold>No meals found. Please check your filters!</CustomText>
+      </View>
+    );
+
   return (
     <View style={styles.screen}>
       <MealList
@@ -35,6 +42,11 @@ const Meals = (props) => {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
+  },
+  noData: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 

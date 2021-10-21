@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { View, Switch, StyleSheet, TouchableOpacity } from 'react-native';
+import { useDispatch } from 'react-redux';
 import colors from '../constants/colors';
 
 import { DrawerIcon, CustomText } from '/components';
+import { setFilters } from '../store/features/meals';
 
 const FilterSwitch = ({ label, state, onChange }) => (
   <View style={styles.filterContainer}>
@@ -22,6 +24,7 @@ const Filters = (props) => {
   const [isLactoseFree, setIsLactoseFree] = useState(false);
   const [isVegan, setIsVegan] = useState(false);
   const [isVegetarian, setIsVegetarian] = useState(false);
+  const dispatch = useDispatch();
 
   const saveFilter = useCallback(() => {
     const filters = {
@@ -31,7 +34,7 @@ const Filters = (props) => {
       vegetarian: isVegetarian,
     };
 
-    console.log('Filters', filters);
+    dispatch(setFilters(filters));
   }, [isGlutenFree, isLactoseFree, isVegan, isVegetarian]);
 
   useEffect(() => {

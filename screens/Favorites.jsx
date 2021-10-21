@@ -1,6 +1,6 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { View, StyleSheet } from 'react-native';
+import { useSelector } from 'react-redux';
 
 import { CustomText, MealList } from '/components';
 import colors from '../constants/colors';

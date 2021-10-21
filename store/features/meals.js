@@ -17,14 +17,33 @@ export const mealSlice = createSlice({
       if (index > -1) {
         state.favoriteMeals.splice(index, 1);
       } else {
-        const meal = initialState.meals.find((item) => item.id === action.payload);
+        const meal = state.meals.find((item) => item.id === action.payload);
         state.favoriteMeals.push(meal);
       }
       return state;
     },
+    setFilters: (state, action) => {
+      const filters = action.payload;
+      const updatedFilteredMeals = state.meals.filter((meal) => {
+        if (filters.glutenFree && !meal.isGlutenFree) {
+          return false;
+        }
+        if (filters.lactoseFree && !meal.isLactoseFree) {
+          return false;
+        }
+        if (filters.vegetarian && !meal.isVegetarian) {
+          return false;
+        }
+        if (filters.vegan && !meal.isVegan) {
+          return false;
+        }
+        return meal;
+      });
+      state.filteredMeals = updatedFilteredMeals;
+    },
   },
 });
 
-export const { toggleFavorite } = mealSlice.actions;
+export const { toggleFavorite, setFilters } = mealSlice.actions;
 
 export default mealSlice.reducer;
