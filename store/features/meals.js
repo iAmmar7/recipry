@@ -11,13 +11,20 @@ const initialState = {
 export const mealSlice = createSlice({
   name: 'meals',
   initialState,
-  reducer: {
-    makeFavorite: (state, action) => {
-      state.favoriteMeals.push(action.payload);
+  reducers: {
+    toggleFavorite: (state, action) => {
+      const index = state.favoriteMeals.findIndex((item) => item.id === action.payload);
+      if (index > -1) {
+        state.favoriteMeals.splice(index, 1);
+      } else {
+        const meal = initialState.meals.find((item) => item.id === action.payload);
+        state.favoriteMeals.push(meal);
+      }
+      return state;
     },
   },
 });
 
-export const { makeFavorite } = mealSlice.actions;
+export const { toggleFavorite } = mealSlice.actions;
 
 export default mealSlice.reducer;

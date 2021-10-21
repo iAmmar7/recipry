@@ -1,8 +1,10 @@
-import React, { useState, useLayoutEffect } from 'react';
+import React, { useLayoutEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { ScrollView, View, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 import { CustomText } from '/components';
+import { toggleFavorite } from '../store/features/meals';
 import colors from '../constants/colors';
 
 const MealDetails = (props) => {
@@ -10,28 +12,28 @@ const MealDetails = (props) => {
     navigation,
     route: { params: { meal, bgColor } = {} },
   } = props;
-  const [favorite, setFavorite] = useState(false);
+  const { favoriteMeals } = useSelector((state) => state.meals);
+  const dispatch = useDispatch();
 
   useLayoutEffect(() => {
     // Add icon on stack navigator header
     navigation.setOptions({
-      headerRight: () =>
-        favorite ? (
-          <TouchableOpacity onPress={() => setFavorite(!favorite)}>
-            <Ionicons name="heart-sharp" size={24} color="white" />
-          </TouchableOpacity>
-        ) : (
-          <TouchableOpacity onPress={() => setFavorite(!favorite)}>
-            <Ionicons name="heart-outline" size={24} color="white" />
-          </TouchableOpacity>
-        ),
+      headerRight: () => (
+        <TouchableOpacity onPress={() => dispatch(toggleFavorite(meal.id))}>
+          <Ionicons
+            name={favoriteMeals.findIndex((item) => item.id === meal.id) > -1 ? 'heart-sharp' : 'heart-outline'}
+            size={24}
+            color="white"
+          />
+        </TouchableOpacity>
+      ),
     });
 
     // Change color of tab on Tab navigator
     navigation.getParent().setOptions({
       tabBarColor: bgColor ? colors.darkGrey : colors.primary,
     });
-  }, [navigation, favorite]);
+  }, [navigation, favoriteMeals.length]);
 
   return (
     <ScrollView>
