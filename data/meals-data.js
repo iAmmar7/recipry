@@ -23,7 +23,7 @@ export const MEALS = [
     true,
     true,
     true
-  ),
+  ).get(),
 
   new Meal(
     'm2',
@@ -43,7 +43,7 @@ export const MEALS = [
     false,
     false,
     false
-  ),
+  ).get(),
 
   new Meal(
     'm3',
@@ -65,7 +65,7 @@ export const MEALS = [
     false,
     false,
     true
-  ),
+  ).get(),
 
   new Meal(
     'm4',
@@ -98,7 +98,7 @@ export const MEALS = [
     false,
     false,
     false
-  ),
+  ).get(),
 
   new Meal(
     'm5',
@@ -130,7 +130,7 @@ export const MEALS = [
     false,
     true,
     true
-  ),
+  ).get(),
 
   new Meal(
     'm6',
@@ -156,7 +156,7 @@ export const MEALS = [
     false,
     true,
     false
-  ),
+  ).get(),
 
   new Meal(
     'm7',
@@ -185,7 +185,7 @@ export const MEALS = [
     false,
     true,
     false
-  ),
+  ).get(),
 
   new Meal(
     'm8',
@@ -216,7 +216,7 @@ export const MEALS = [
     false,
     false,
     true
-  ),
+  ).get(),
 
   new Meal(
     'm9',
@@ -263,7 +263,7 @@ export const MEALS = [
     false,
     true,
     false
-  ),
+  ).get(),
   new Meal(
     'm10',
     ['c2', 'c5', 'c10'],
@@ -286,5 +286,5 @@ export const MEALS = [
     true,
     true,
     true
-  ),
+  ).get(),
 ];

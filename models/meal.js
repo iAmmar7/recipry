@@ -26,6 +26,23 @@ class Meal {
     this.isVegetarian = isVegetarian;
     this.isLactoseFree = isLactoseFree;
   }
+
+  get() {
+    return {
+      id: this.id,
+      categoryIds: this.categoryIds,
+      title: this.title,
+      affordability: this.affordability,
+      complexity: this.complexity,
+      imageUrl: this.imageUrl,
+      duration: this.duration,
+      ingredients: this.ingredients,
+      steps: this.steps,
+      isGlutenFree: this.isGlutenFree,
+      isVegetarian: this.isVegetarian,
+      isLactoseFree: this.isLactoseFree,
+    };
+  }
 }
 
 export default Meal;
