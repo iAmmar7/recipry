@@ -5,8 +5,10 @@ import { StatusBar } from 'expo-status-bar';
 import * as Font from 'expo-font';
 import AppLoading from 'expo-app-loading';
 import { enableScreens } from 'react-native-screens';
+import { Provider } from 'react-redux';
 
 import DrawerNavigator from './navigation/DrawerNavigator';
+import store from './store';
 
 // Make RN use native (Android|iOS) screen behavior. Good for performance
 enableScreens();
@@ -32,8 +34,10 @@ export default function App() {
 
   return (
     <>
-      <StatusBar style="inverted" />
-      <DrawerNavigator />
+      <Provider store={store}>
+        <StatusBar style="inverted" />
+        <DrawerNavigator />
+      </Provider>
     </>
   );
 }

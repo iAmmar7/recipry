@@ -20,7 +20,7 @@ const TabNavigatorComponent = ({ children }) =>
         const routeName = getFocusedRouteNameFromRoute(route);
         return {
           tabBarColor: colors.primary,
-          ...(routeName === 'Meals' && { tabBarColor: colors.darkGrey }),
+          // ...(routeName === 'Meals' && { tabBarColor: colors.darkGrey }),
         };
       }}
     >

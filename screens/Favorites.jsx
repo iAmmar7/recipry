@@ -1,18 +1,17 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { View, StyleSheet } from 'react-native';
 
 import { MealList } from '/components';
-import { MEALS } from '../data';
 import colors from '../constants/colors';
 
 const Meals = (props) => {
   const { navigation } = props;
-
-  const favMeals = MEALS.filter((meal) => meal.id === 'm1' || meal.id === 'm2');
+  const { favoriteMeals } = useSelector((state) => state.meals);
 
   return (
     <View style={styles.screen}>
-      <MealList data={favMeals} navigation={navigation} itemBgColor={colors.primary} />
+      <MealList data={favoriteMeals} navigation={navigation} itemBgColor={colors.primary} />
     </View>
   );
 };

@@ -1,8 +1,8 @@
 import React, { useLayoutEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { View, StyleSheet } from 'react-native';
 
 import { MealList } from '/components';
-import { MEALS } from '../data';
 import colors from '../constants/colors';
 
 const Meals = (props) => {
@@ -10,13 +10,15 @@ const Meals = (props) => {
     navigation,
     route: { params: { category } = {} },
   } = props;
+  const { filteredMeals } = useSelector((state) => state.meals);
 
   useLayoutEffect(() => {
-    // navigation.getParent().setOptions({ tabBarColor: colors.darkGrey });
-    // return () => navigation.getParent().setOptions({ tabBarColor: colors.primary });
+    // Change tab navigation color
+    navigation.getParent().setOptions({ tabBarColor: colors.darkGrey });
+    return () => navigation.getParent().setOptions({ tabBarColor: colors.primary });
   }, [navigation]);
 
-  const displayedMeals = MEALS.filter((meal) => meal.categoryIds.indexOf(category.id) >= 0);
+  const displayedMeals = filteredMeals.filter((meal) => meal.categoryIds.indexOf(category.id) >= 0);
 
   return (
     <View style={styles.screen}>
