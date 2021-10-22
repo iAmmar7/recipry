@@ -2,7 +2,7 @@
 A react native based food recipes application.
 
 ## *Purpose*
-*The purpose of this project is to learn how to integrate multiple navigators inside a single parent and how to integrate those navigators with redux.*
+:bangbang: *The purpose of this project is to learn how to integrate multiple navigators inside a single parent and how to integrate those navigators with redux* :bangbang:
 
 ## Few features
 - For navigation, this app is using *four* different navigators provided by the [React Navigation](https://reactnavigation.org/docs/getting-started/) library
