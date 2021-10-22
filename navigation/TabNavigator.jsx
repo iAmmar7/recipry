@@ -13,17 +13,7 @@ const Tab = Platform.OS === 'android' ? createMaterialBottomTabNavigator() : cre
 
 const TabNavigatorComponent = ({ children }) =>
   Platform.OS === 'android' ? (
-    <Tab.Navigator
-      activeColor={colors.white}
-      shifting={true}
-      screenOptions={({ route }) => {
-        const routeName = getFocusedRouteNameFromRoute(route);
-        return {
-          tabBarColor: colors.primary,
-          // ...(routeName === 'Meals' && { tabBarColor: colors.darkGrey }),
-        };
-      }}
-    >
+    <Tab.Navigator activeColor={colors.white} shifting={true}>
       {children}
     </Tab.Navigator>
   ) : (
