@@ -17,3 +17,12 @@ A react native based food recipes application.
 - User can select few filters and meals are displayed to the user according to his/her filter selection.
 - This app is using the **Open Sans** font for all the text.
 - For state management, this app has been integrated with **Redux** using [Redux Toolkit](https://redux-toolkit.js.org/).
+
+## App screens
+| Home screen | Favorites screen | Favorite Meal Details screen | Side Drawer | Filters screen |
+| ----------- | ------------ | -------------------------------- | ----------- | -------------- |
+| <img src="assets/Home.png" width="200"/> | <img src="assets/Favorites.png" width="200"/> | <img src="assets/FavoriteMealDetails.png" width="200"/> | <img src="assets/Drawer.png" width="200"/> | <img src="assets/Filters.png" width="200"/> |
+
+| Meals screen | Meals Details screen |
+| ------------ | -------------------- |
+| <img src="assets/Meals.png" width="200"/> | <img src="assets/MealDetails.png" width="200"/> |
