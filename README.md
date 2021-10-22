@@ -18,6 +18,12 @@ A react native based food recipes application.
 - This app is using the **Open Sans** font for all the text.
 - For state management, this app has been integrated with **Redux** using [Redux Toolkit](https://redux-toolkit.js.org/).
 
+## Technologies
+- React Native <img alt="ReactNative" src="https://img.shields.io/badge/-ReactNative-45b8d8?style=flat-square&logo=react&logoColor=white" />
+- Expo CLI <img alt="Expo" src="https://img.shields.io/badge/-Expo-000000?style=flat-square&logo=expo&logoColor=white" />
+- React Navigation <img alt="ReactNavigation" src="https://img.shields.io/badge/-ReactNavigation-52457B?style=flat-square&logo=react&logoColor=white" />
+- Redux Toolkit <img alt="Redux" src="https://img.shields.io/badge/-Redux-764ABC?style=flat-square&logo=redux&logoColor=white" />
+
 ## App screens
 | Home screen | Favorites screen | Favorite Meal Details screen | Side Drawer | Filters screen |
 | ----------- | ------------ | -------------------------------- | ----------- | -------------- |
