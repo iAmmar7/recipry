@@ -1,5 +1,5 @@
-# meals-app
-A react native based food recipes application.
+# recipry
+Recipry is a react native based food recipes application.
 
 ## *Purpose*
 :bangbang: *The purpose of this project is to learn how to integrate multiple navigators inside a single parent and how to integrate those navigators with redux* :bangbang:
